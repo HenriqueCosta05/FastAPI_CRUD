@@ -10,8 +10,8 @@ class UpdateItemForm {
         <div class="modal-content"><div class="close"> X </div>
             <h4>Atualizar Item</h4>
             <div class="input-field">
-                <label for="updateId">ID para atualizar</label>
-                <input type="text" id="updateId" class="validate">
+                <label for="updateId">ID</label>
+                <input disabled type="text" id="updateId" class="validate">
             </div>
             <div class="input-field">
                 <label for="updateName">Nome</label>
@@ -50,6 +50,7 @@ class UpdateItemForm {
 
     async updateItem() {
         const id = document.getElementById('updateId').value;
+        const _id = id;
         const name = document.getElementById('updateName').value;
         const description = document.getElementById('updateDescription').value;
         const price = document.getElementById('updatePrice').value;

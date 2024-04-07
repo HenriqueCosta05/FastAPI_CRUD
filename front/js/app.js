@@ -34,19 +34,19 @@ class App {
         const items = await response.json();
         let itemsHtml = '<h2>Itens Disponíveis</h2><div class="panel">';
         items.forEach((item) => {
-            itemsHtml += `<div class="item" data-id="${item.id}">
-                ${item.id} - ${item.name} - ${item.description} - $${item.price} - On Offer: ${item.on_offer ? 'Yes' : 'No'}
-                <button class="delete-button" data-id="${item.id}">Deletar</button></div>`;
+            itemsHtml += `<div class="item" data-id="${item.id || item._id}">
+                ${item._id || item.id} - ${item.name} - ${item.description} - $${item.price} - On Offer: ${item.on_offer ? 'Yes' : 'No'}
+                <button class="delete-button" data-id="${item.id || item._id}">Deletar</button></div>`;
         });
         itemsHtml += '</div>';
         this.render('itemsList', itemsHtml);
 
         items.forEach((item) => {
-            document.querySelector(`.delete-button[data-id='${item.id}']`).addEventListener('click', (e) => {
+            document.querySelector(`.delete-button[data-id='${item.id || item._id}']`).addEventListener('click', (e) => {
                 e.stopPropagation();
-                this.updateItemForm.deleteItem(item.id);
+                this.updateItemForm.deleteItem(item.id || item._id);
             });
-            document.querySelector(`.item[data-id='${item.id}']`).addEventListener('click', () => {
+            document.querySelector(`.item[data-id='${item.id || item._id}']`).addEventListener('click', () => {
                 this.openUpdateModal(item);
             });
            
@@ -54,7 +54,7 @@ class App {
     }
     
     fillUpdateForm(item) {
-        document.getElementById('updateId').value = item.id;
+        document.getElementById('updateId').value = item.id || item._id;
         document.getElementById('updateName').value = item.name;
         document.getElementById('updateDescription').value = item.description;
         document.getElementById('updatePrice').value = item.price;

@@ -1,12 +1,14 @@
 from fastapi import FastAPI
-from back.models import Item
-from back.SQL.controllers import create_item, get_all_items, update_item, delete_item
+from models import Item
+from SQL.controllers import create_item, get_all_items, update_item, delete_item
+#from NoSQL.controllers import create_item, get_all_items, update_item, delete_item
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 origins = [
     "http://localhost:966",  
-    "http://localhost:8000",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
 ]
 
 app.add_middleware(

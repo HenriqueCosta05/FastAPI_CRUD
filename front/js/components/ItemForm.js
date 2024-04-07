@@ -35,7 +35,7 @@ class ItemForm {
         });
 
         alert('Item adicionado com sucesso.');
-        this.renderApp('itemsList', render);
+        this.renderApp('itemsList', this.render);
     }
 }
 export default ItemForm;

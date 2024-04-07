@@ -1,8 +1,8 @@
-from back.SQL.db import create_server_connection, execute_query
-from back.models import Item
+from SQL.db import create_server_connection, execute_query
+from models import Item
 import uuid
 
-connection = create_server_connection("localhost", "root", "root123", "fastcrud")
+connection = create_server_connection("localhost", "root", "1234", "fastcrud")
 
 def create_item(item: Item):
     item.id = str(uuid.uuid4())
