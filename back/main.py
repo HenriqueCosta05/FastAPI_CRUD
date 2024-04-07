@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from models import Item
-from SQL.controllers import create_item, get_all_items, update_item, delete_item
-#from NoSQL.controllers import create_item, get_all_items, update_item, delete_item
+#from SQL.controllers import create_item, get_all_items, update_item, delete_item
+from NoSQL.controllers import create_item, get_all_items, update_item, delete_item
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
