@@ -1,4 +1,4 @@
-from back.db import create_server_connection, execute_query
+from back.SQL.db import create_server_connection, execute_query
 from back.models import Item
 import uuid
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from back.models import Item
-from back.controllers import create_item, get_all_items, update_item, delete_item
+from back.SQL.controllers import create_item, get_all_items, update_item, delete_item
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
