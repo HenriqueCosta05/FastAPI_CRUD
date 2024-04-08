@@ -105,3 +105,26 @@ from fastapi.middleware.cors import CORSMiddleware
 > Como estamos tratando de diferentes bancos de dados, cada banco terá seus próprios dados sendo tratados de diferentes formas, o que significa que o usuário não poderá recuperar um dado similar entre os dois bancos de dados.
 
 
+## Alterações do Projeto
+Para suportar o uso de banco de dados não relacional (no caso, MongoDB), o projeto foi organizado em diferentes crontrollers e arquivos de conexão, em pastas separadas:
+```
+    NoSQL/*
+    ou
+    SQL/*
+```
+### Controllers
+Utilizando-se de funções do MongoDB, pelo emprego de driver adaptado (pymongo), temos quatro méotodos, cada uma delas responsável por uma operação do CRUD:
+
+* `create_item`: utiliza-se a função `insert_one()`, que insere um registro no banco de dados MongoDB.
+
+* `get_all_items`: utiliza-se a função  `find()`, que busca um ou mais registros no banco de dados MongoDB.
+
+* `update_item`: utiliza-se a função `update_one()`, que atualiza um registro no banco de dados MongoDB.
+
+* `delete_item`: utiliza-se a função `delete_one()`, que exclui um registro no banco de dados MongoDB.
+
+
+### Conexão do banco de dados
+Criou-se uma classe no arquivo disponível em `NoSQL/db.py`, responsável por inicializar a conexão com o MongoDB, com a connection string respectiva, definida em `mongo_db_connection_info`.
+
+Em seguida, criou-se um outro arquivo python, `connect_db.py`, responsável por conectar efetivamente o banco de dados e exibir, em tela, se a conexão foi bem-sucedida ou não.
